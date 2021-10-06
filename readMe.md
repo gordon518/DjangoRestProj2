@@ -1,6 +1,6 @@
 ﻿# Special Feature
 The original project is at https://github.com/gordon518/DjangoRestProj1, The original one follows official practise.
-But there are some shortcoimgs for the official framework. First the ORM in this framework is ugly and low efficient. 
+But there are some shortcomings for the official framework. First the ORM in this framework is ugly and low efficient. 
 Second there are too many configurations need to do when using this framework, you need to config data model, serializers, permissions and urls.
 Convention over configuration, we should get rid of config. Instead of using the ugly and low efficient ORM, 
 it is better to directly use SQL to operate the database. What? You dislike SQL and not comfortable using SQL to operate database?
