@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Welcome to idate.pw, Free Friend Finder</title>
+	<meta charset="utf-8">
+	<meta name="Keywords" content="idate.pw,dating,Free Dating,Free Friend Finder,search friend">
+	<meta name="Description" content="free dating service">
+</head>
+<body>
+API test<br/>
+<a href="api/ping" target="_blank">call "api/ping"</a><br/><br>
+
+<form name="form1">
+<table border="0" cellpadding="0" cellspacing="1" width="100%" bgcolor="black">
+	<tr bgcolor="LightBlue">
+		<td>URL Test</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			URL: <input type="text" name="txtUrl" size="120"/>
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Method: 
+			<select name="method">
+				<option value="get" selected>Get</option>
+				<option value="post">Post</option>
+				<option value="put">Put</option>
+				<option value="delete">Delete</option>
+			</select>
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Body:<br/> 
+			<textarea cols="120" rows="10" name="body"></textarea>			
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			<input type="button" name="btSubmit" value="Call api/posts with the above parameters" onclick="onCallApi()" />
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Output:<br/> 
+			<textarea cols="120" rows="10" name="output"></textarea>
+		</td>
+	</tr>
+</table>
+</form>
+<br/>
+<br/>
+<br/>
+
+<a href="https://idate.pw">idate.pw,dating,Free Dating,Free Friend Finder,search friend</a><br/>
+</body>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script language="JavaScript">
+function onCallApi() {
+	var url=form1.txtUrl.value;
+	var method=form1.method.value;
+	var json=JSON.parse(form1.body.value);
+	//ajax submit
+	$.ajax({
+		type:method,   //post submit, default is get
+		url:url,
+		contentType: "application/json;charset=utf-8",
+		data:json,
+		error:function(ret) {
+			form1.output.value=ret;
+		},
+		success:function(data) {
+			form1.output.value=data;
+		}
+	});
+
+}
+</script>
+</html>

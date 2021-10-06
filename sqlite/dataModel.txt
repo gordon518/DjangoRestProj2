@@ -1,0 +1,16 @@
+﻿/*User table*/
+create table user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT, /*primary key*/
+    username varchar(20) unique not null,
+    password varchar(20) not null,
+    name varchar(40) not null); /*user's full name*/
+
+/*Blog table*/
+create table blog(
+    id INTEGER PRIMARY KEY AUTOINCREMENT, /*primary key*/
+    title varchar(50) not null,
+    body text,
+    owner INTEGER,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(owner) REFERENCES user(id));
+
